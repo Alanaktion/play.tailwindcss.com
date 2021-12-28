@@ -34,11 +34,17 @@ export function toggleTheme() {
   root.classList.add('disable-transitions')
   if (root.classList.contains('dark')) {
     root.classList.remove('dark')
+    postMessage({
+      theme: 'light',
+    })
     try {
       window.localStorage.setItem('theme', 'light')
     } catch (_) {}
   } else {
     root.classList.add('dark')
+    postMessage({
+      theme: 'dark',
+    })
     try {
       window.localStorage.setItem('theme', 'dark')
     } catch (_) {}

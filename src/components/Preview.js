@@ -318,6 +318,7 @@ export const Preview = forwardRef(
                       if (typeof e.data.clear !== 'undefined') {
                         setHtml()
                         setCss()
+                        setTheme()
                         checkVisibility()
                         return
                       }
@@ -326,6 +327,9 @@ export const Preview = forwardRef(
                       }
                       if (typeof e.data.html !== 'undefined') {
                         setHtml(e.data.html)
+                      }
+                      if (typeof e.data.theme !== 'undefined') {
+                        setTheme(e.data.theme)
                       }
                       checkVisibility()
                     })
@@ -354,6 +358,13 @@ export const Preview = forwardRef(
                       newStyle.innerHTML = typeof css === 'undefined' ? '' : css
                       style.parentNode.replaceChild(newStyle, style)
                       hasCss = typeof css === 'undefined' ? false : true
+                    }
+                    function setTheme(theme) {
+                      if (theme === 'dark') {
+                        document.querySelector('html').classList.add('dark')
+                      } else {
+                        document.querySelector('html').classList.remove('dark')
+                      }
                     }
                     </script>
                   </head>
