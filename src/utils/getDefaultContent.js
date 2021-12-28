@@ -68,6 +68,7 @@ export async function getDefaultContent() {
   const css = '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n'
   const config = `module.exports = {
   theme: {
+    darkMode: "class",
     extend: {
       // ...
     },
